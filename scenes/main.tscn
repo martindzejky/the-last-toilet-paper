@@ -10,29 +10,32 @@ radius = 8.0
 
 [node name="world" type="Node2D"]
 
-[node name="tilemap" type="TileMap" parent="."]
+[node name="y sort" type="YSort" parent="."]
+
+[node name="tilemap" type="TileMap" parent="y sort"]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 cell_tile_origin = 1
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( -131078, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -65542, 0, 0, -6, 0, 0, 65530, 0, 0, 131066, 0, 0, 196602, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0 )
+tile_data = PoolIntArray( -262144, 2, 0, -262142, 2, 0, -131078, 0, 0, -7, 1, 0, -6, 1, 0, -5, 1, 0, 196606, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0 )
 
-[node name="player" type="KinematicBody2D" parent="."]
+[node name="player" type="KinematicBody2D" parent="y sort"]
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="camera" type="Camera2D" parent="player"]
+[node name="camera" type="Camera2D" parent="y sort/player"]
 current = true
 
-[node name="sprite" type="AnimatedSprite" parent="player"]
+[node name="sprite" type="AnimatedSprite" parent="y sort/player"]
 position = Vector2( 0, -8 )
 frames = ExtResource( 1 )
 animation = "run_down"
 frame = 1
 script = ExtResource( 4 )
 
-[node name="collider" type="CollisionShape2D" parent="player"]
+[node name="collider" type="CollisionShape2D" parent="y sort/player"]
 shape = SubResource( 1 )
