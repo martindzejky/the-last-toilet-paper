@@ -10,7 +10,7 @@ func _process(_delta):
     var positionDelta = global_position - previousPosition
 
     if positionDelta.length() < 0.001:
-        play('idle')
+        playing = false
         return
 
     positionDelta = positionDelta.normalized()
