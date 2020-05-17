@@ -1,15 +1,21 @@
 extends AnimatedSprite
 
 var previousPosition = Vector2.ZERO
+var body
 
 func _ready():
-    previousPosition = global_position
+    body = get_parent()
+    previousPosition = body.global_position
 
 
 func _process(_delta):
-    var positionDelta = global_position - previousPosition
+    # are we running or pushing?
+    var pushing = 'wasPushingLastFrame' in body and body.wasPushingLastFrame
+    var animName = 'push' if pushing else 'run'
 
-    if positionDelta.length() < 0.001:
+    var positionDelta = body.global_position - previousPosition
+
+    if positionDelta.length() < 0.0001:
         playing = false
         return
 
@@ -17,18 +23,21 @@ func _process(_delta):
 
     # get the vector's angle (in RADIANS!) and use it to set the correct animation
     var angle = positionDelta.angle() + 2*PI
+    var animation
 
     # the + 0.1 is there to better handle "perfect" diagonal movement
     if angle < PI*5/4 + 0.05:
-        play('run_left')
+        animation = (animName+'_left')
     elif angle < PI*7/4 + 0.05:
-        play('run_up')
+        animation = (animName+'_up')
     elif angle < PI*9/4 + 0.05:
-        play('run_right')
+        animation = (animName+'_right')
     elif angle < PI*11/4 + 0.05:
-        play('run_down')
+        animation = (animName+'_down')
     else:
-        play('run_left')
+        animation = (animName+'_left')
+
+    play(animation)
 
     # update the previous position
-    previousPosition = global_position
+    previousPosition = body.global_position

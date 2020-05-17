@@ -5,10 +5,12 @@ class_name KinematicBody2DWithVelocity
 # Also handles pushing things.
 
 export var canBePushed = false
+var wasPushingLastFrame = false
 var velocity = Vector2.ZERO
 
 
 func _physics_process(delta):
+    wasPushingLastFrame = false
     moveAndPush(self, velocity * delta)
     velocity = Vector2.ZERO
 
@@ -28,6 +30,8 @@ func moveAndPush(body, movement):
         # exit early if the other object cannot be pushed
         if !('canBePushed' in collider) or !collider.canBePushed:
             return
+
+        body.wasPushingLastFrame = true
 
         var dir = Vector2.ZERO
         var dirFromBodyToCollider = collider.global_position - global_position
