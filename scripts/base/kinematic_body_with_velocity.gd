@@ -9,19 +9,31 @@ var velocity = Vector2.ZERO
 
 
 func _physics_process(delta):
+    moveAndPush(self, velocity * delta)
+    velocity = Vector2.ZERO
+
+
+func moveAndPush(body, movement):
+    if movement.length() < 0.01:
+        return
+
     # mooooove!
-    var collision = move_and_collide(velocity * delta)
+    var collision = body.move_and_collide(movement)
 
     # pushing stuff here
     if collision:
         var remainder = collision.remainder
         var collider = collision.collider
 
+        # exit early if the other object cannot be pushed
+        if !('canBePushed' in collider) or !collider.canBePushed:
+            return
+
         var dir = Vector2.ZERO
-        var dirFromPlayerToObject = collider.global_position - global_position
+        var dirFromBodyToCollider = collider.global_position - global_position
 
         # get the remainder vector's angle (in RADIANS!) and use it to set the correct direction
-        var angle = dirFromPlayerToObject.angle() + 2*PI
+        var angle = dirFromBodyToCollider.normalized().angle() + 2*PI
 
         if angle < PI*5/4:
             dir.x -= 1
@@ -34,12 +46,9 @@ func _physics_process(delta):
         else:
             dir.x -= 1
 
-        var pushVelocity = dir * remainder.length() / delta
+        var pushVelocity = dir * remainder.length() * 0.6
 
-        # only push objects that can be pushed
-        if 'canBePushed' in collider and collider.canBePushed:
-            # transfer velocity
-            collider.velocity = pushVelocity * .7
-
-    # finally, stop moving
-    velocity = Vector2.ZERO
+        # try moving the collider
+        moveAndPush(collider, pushVelocity)
+        #collider.move_and_collide(pushVelocity)
+        body.move_and_collide(remainder)
