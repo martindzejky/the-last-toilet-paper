@@ -1,7 +1,7 @@
 extends KinematicBody2DWithVelocity
 
 
-var moveSpeed = 32
+var moveSpeed = 64
 
 
 func _ready():

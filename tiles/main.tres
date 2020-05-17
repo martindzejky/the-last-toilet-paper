@@ -35,7 +35,7 @@
 5/texture = ExtResource( 1 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 80, 80, 16, 16 )
+5/region = Rect2( 88, 80, 16, 16 )
 5/tile_mode = 0
 5/occluder_offset = Vector2( 0, 0 )
 5/navigation_offset = Vector2( 0, 0 )
