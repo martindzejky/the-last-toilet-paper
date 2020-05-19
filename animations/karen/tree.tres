@@ -1,0 +1,49 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=11 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "idleDown"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "idleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "idleRight"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "idleUp"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+auto_advance = true
+advance_condition = "right"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+auto_advance = true
+advance_condition = "left"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+auto_advance = true
+advance_condition = "up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+auto_advance = true
+advance_condition = "up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+auto_advance = true
+advance_condition = "down"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+auto_advance = true
+advance_condition = "down"
+
+[resource]
+states/idleDown/node = SubResource( 2 )
+states/idleDown/position = Vector2( 295.25, 186 )
+states/idleLeft/node = SubResource( 3 )
+states/idleLeft/position = Vector2( 199.5, 112.875 )
+states/idleRight/node = SubResource( 1 )
+states/idleRight/position = Vector2( 412.5, 113.531 )
+states/idleUp/node = SubResource( 4 )
+states/idleUp/position = Vector2( 296, 39.5 )
+transitions = [ "idleLeft", "idleRight", SubResource( 5 ), "idleRight", "idleLeft", SubResource( 6 ), "idleLeft", "idleUp", SubResource( 7 ), "idleRight", "idleUp", SubResource( 8 ), "idleLeft", "idleDown", SubResource( 9 ), "idleRight", "idleDown", SubResource( 10 ) ]
+start_node = "idleDown"
