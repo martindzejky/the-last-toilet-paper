@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/regal_left.png-e22d816d5d3bc8f29d9f6e56581e253f.stex"
+path="res://.import/karen.png-9540ee32a994ab73b46833340cf37976.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/regal_left.png"
-dest_files=[ "res://.import/regal_left.png-e22d816d5d3bc8f29d9f6e56581e253f.stex" ]
+source_file="res://gfx/source/karen.png"
+dest_files=[ "res://.import/karen.png-9540ee32a994ab73b46833340cf37976.stex" ]
 
 [params]
 
