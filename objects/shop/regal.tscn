@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gfx/regalBottom.png" type="Texture" id=1]
-[ext_resource path="res://scripts/base/kinematicBodyWithVelocity.gd" type="Script" id=2]
+[ext_resource path="res://scripts/physics/kinematicBodyWithVelocity.gd" type="Script" id=2]
 [ext_resource path="res://objects/shop/goods.tscn" type="PackedScene" id=3]
+
 
 
 

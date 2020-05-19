@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "AnimState",
+"language": "GDScript",
+"path": "res://scripts/animation/animState.gd"
+}, {
+"base": "Node2D",
+"class": "CharacterPhysics",
+"language": "GDScript",
+"path": "res://scripts/physics/characterPhysics.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "KinematicBody2DWithVelocity",
 "language": "GDScript",
-"path": "res://scripts/base/kinematicBodyWithVelocity.gd"
+"path": "res://scripts/physics/kinematicBodyWithVelocity.gd"
 } ]
 _global_script_class_icons={
+"AnimState": "",
+"CharacterPhysics": "",
 "KinematicBody2DWithVelocity": ""
 }
 
