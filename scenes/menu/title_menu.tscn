@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/menu/quit_btn.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gfx/title.png" type="Texture" id=2]
+[ext_resource path="res://scenes/menu/start_btn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/menu/title_menu.gd" type="Script" id=4]
+[ext_resource path="res://scenes/menu/FadeOut.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade_out"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="Title Screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -43.0
+margin_bottom = 43.0
+custom_constants/separation = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Menu"]
+margin_right = 320.0
+margin_bottom = 22.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="Start Btn" parent="Menu" instance=ExtResource( 3 )]
+margin_top = 34.0
+margin_bottom = 54.0
+
+[node name="Quit Btn" parent="Menu" instance=ExtResource( 1 )]
+margin_top = 66.0
+margin_bottom = 86.0
+
+[node name="FadeOut" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.440125
+margin_right = 0.440125
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeOut"]
+anims/fade_out = SubResource( 1 )
+[connection signal="pressed" from="Menu/Start Btn" to="." method="_on_Start_Btn_pressed"]
+[connection signal="pressed" from="Menu/Quit Btn" to="." method="_on_Quit_Btn_pressed"]
+[connection signal="fade_out_finished" from="FadeOut" to="." method="_on_FadeOut_fade_out_finished"]
+[connection signal="animation_finished" from="FadeOut/AnimationPlayer" to="FadeOut" method="_on_AnimationPlayer_animation_finished"]
