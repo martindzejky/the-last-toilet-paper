@@ -28,7 +28,7 @@ _global_script_class_icons={
 
 config/name="The last toilet paper"
 config/description="A game about buying the last toilet paper from a shop."
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/menu/title_menu.tscn"
 config/icon="res://icon.png"
 
 [display]
