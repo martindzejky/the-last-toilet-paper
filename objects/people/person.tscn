@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/physics/characterPhysics.gd" type="Script" id=1]
 [ext_resource path="res://scripts/animation/animState.gd" type="Script" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://animations/karen/pushLeft.tres" type="Animation" id=14]
 [ext_resource path="res://animations/karen/pushDown.tres" type="Animation" id=15]
 [ext_resource path="res://animations/karen/pushUp.tres" type="Animation" id=16]
+[ext_resource path="res://scripts/animation/animationController.gd" type="Script" id=17]
+[ext_resource path="res://animations/karen/bindings.tres" type="Resource" id=18]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.00002
@@ -48,10 +50,15 @@ anims/runLeft = ExtResource( 12 )
 anims/runRight = ExtResource( 10 )
 anims/runUp = ExtResource( 9 )
 
+[node name="controller" type="Node2D" parent="animations"]
+script = ExtResource( 17 )
+bindings = ExtResource( 18 )
+stateNodePath = NodePath("../../animState")
+
 [node name="sprite" type="Sprite" parent="."]
 position = Vector2( 0, -10 )
 texture = ExtResource( 3 )
-hframes = 18
+hframes = 22
 frame = 6
 
 [node name="shadow" type="Sprite" parent="."]

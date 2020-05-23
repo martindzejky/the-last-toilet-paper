@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/animation/animState.gd"
 }, {
+"base": "Resource",
+"class": "AnimationStateBinding",
+"language": "GDScript",
+"path": "res://scripts/animation/stateBinding.gd"
+}, {
+"base": "Resource",
+"class": "AnimationStateBindings",
+"language": "GDScript",
+"path": "res://scripts/animation/stateBindings.gd"
+}, {
 "base": "Node2D",
 "class": "CharacterPhysics",
 "language": "GDScript",
@@ -21,6 +31,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AnimState": "",
+"AnimationStateBinding": "",
+"AnimationStateBindings": "",
 "CharacterPhysics": ""
 }
 

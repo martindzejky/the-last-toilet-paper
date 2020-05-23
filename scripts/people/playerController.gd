@@ -22,8 +22,8 @@ func _ready():
 
 func _process(_delta):
     # reset the directional animation states
-    var resetStates = AnimState.States.LEFT & AnimState.States.UP & AnimState.States.RIGHT & AnimState.States.DOWN
-    animState.state &= ~resetStates
+    # 15 combines all directional bits
+    animState.state &= ~15
 
     var velocity = Vector2.ZERO
 

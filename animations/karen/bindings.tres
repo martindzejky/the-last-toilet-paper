@@ -1,0 +1,80 @@
+[gd_resource type="Resource" load_steps=15 format=2]
+
+[ext_resource path="res://scripts/animation/stateBindings.gd" type="Script" id=1]
+[ext_resource path="res://scripts/animation/stateBinding.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+name = "idleLeft"
+priority = 0
+states = 1
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+name = "idleUp"
+priority = 0
+states = 2
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+name = "idleRight"
+priority = 0
+states = 4
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+name = "idleDown"
+priority = 0
+states = 8
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+name = "runLeft"
+priority = 0
+states = 17
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 2 )
+name = "runUp"
+priority = 0
+states = 18
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 2 )
+name = "runRight"
+priority = 0
+states = 20
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 2 )
+name = "runDown"
+priority = 0
+states = 24
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 2 )
+name = "pushLeft"
+priority = 1
+states = 33
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 2 )
+name = "pushUp"
+priority = 1
+states = 34
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 2 )
+name = "pushRight"
+priority = 1
+states = 36
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 2 )
+name = "pushDown"
+priority = 1
+states = 40
+
+[resource]
+script = ExtResource( 1 )
+bindings = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ]
